@@ -1,0 +1,50 @@
+namespace: online-boutique
+
+replicaCount: 1
+
+image:
+  registry: docker.io/online-boutique
+  tag: v1
+  pullPolicy: Never
+
+redis:
+  name: redis-cart
+  replicaCount: 1
+  service:
+    type: ClusterIP
+    port: 6379
+
+frontend:
+  service:
+    type: NodePort
+    port: 8080
+    targetPort: 8080
+    nodePort: 30080
+
+backend:
+  service:
+    type: ClusterIP
+
+shoppingAssistant:
+  name: shoppingassistantservice
+  port: 8080
+
+services:
+  adservice:
+    port: 9555
+  cartservice:
+    port: 7070
+  checkoutservice:
+    port: 5050
+  currencyservice:
+    port: 7000
+  emailservice:
+    port: 8080
+  paymentservice:
+    port: 50051
+  productcatalogservice:
+    port: 3550
+  recommendationservice:
+    port: 8080
+  shippingservice:
+    port: 50051

@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: adservice
+  namespace: {{ .Values.namespace | quote }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: adservice
+  template:
+    metadata:
+      labels:
+        app: adservice
+    spec:
+      containers:
+        - name: adservice
+          image: "{{ .Values.image.registry }}/adservice:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: adservice
+  namespace: {{ .Values.namespace | quote }}
+spec:
+  type: {{ .Values.backend.service.type }}
+  selector:
+    app: adservice
+  ports:
+    - port: {{ .Values.services.adservice.port }}

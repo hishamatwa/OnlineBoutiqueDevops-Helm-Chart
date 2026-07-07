@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontendservice
+  namespace: {{ .Values.namespace | quote }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: frontendservice
+  template:
+    metadata:
+      labels:
+        app: frontendservice
+    spec:
+      containers:
+        - name: frontendservice
+          image: "{{ .Values.image.registry }}/frontendservice:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+            - name: PRODUCT_CATALOG_SERVICE_ADDR
+              value: "productcatalogservice:{{ .Values.services.productcatalogservice.port }}"
+            - name: CURRENCY_SERVICE_ADDR
+              value: "currencyservice:{{ .Values.services.currencyservice.port }}"
+            - name: CART_SERVICE_ADDR
+              value: "cartservice:{{ .Values.services.cartservice.port }}"
+            - name: RECOMMENDATION_SERVICE_ADDR
+              value: "recommendationservice:{{ .Values.services.recommendationservice.port }}"
+            - name: CHECKOUT_SERVICE_ADDR
+              value: "checkoutservice:{{ .Values.services.checkoutservice.port }}"
+            - name: SHIPPING_SERVICE_ADDR
+              value: "shippingservice:{{ .Values.services.shippingservice.port }}"
+            - name: AD_SERVICE_ADDR
+              value: "adservice:{{ .Values.services.adservice.port }}"
+            - name: SHOPPING_ASSISTANT_SERVICE_ADDR
+              value: "{{ .Values.shoppingAssistant.name }}:{{ .Values.shoppingAssistant.port }}"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontendservice
+  namespace: {{ .Values.namespace | quote }}
+spec:
+  type: {{ .Values.frontend.service.type }}
+  selector:
+    app: frontendservice
+  ports:
+    - port: {{ .Values.frontend.service.port }}
+      targetPort: {{ .Values.frontend.service.targetPort }}
+      nodePort: {{ .Values.frontend.service.nodePort }}

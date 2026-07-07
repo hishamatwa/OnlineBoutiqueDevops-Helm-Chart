@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: checkoutservice
+  namespace: {{ .Values.namespace | quote }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: checkoutservice
+  template:
+    metadata:
+      labels:
+        app: checkoutservice
+    spec:
+      containers:
+        - name: checkoutservice
+          image: "{{ .Values.image.registry }}/checkoutservice:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+            - name: PORT
+              value: "{{ .Values.services.checkoutservice.port }}"
+            - name: PRODUCT_CATALOG_SERVICE_ADDR
+              value: "productcatalogservice:{{ .Values.services.productcatalogservice.port }}"
+            - name: SHIPPING_SERVICE_ADDR
+              value: "shippingservice:{{ .Values.services.shippingservice.port }}"
+            - name: PAYMENT_SERVICE_ADDR
+              value: "paymentservice:{{ .Values.services.paymentservice.port }}"
+            - name: EMAIL_SERVICE_ADDR
+              value: "emailservice:{{ .Values.services.emailservice.port }}"
+            - name: CURRENCY_SERVICE_ADDR
+              value: "currencyservice:{{ .Values.services.currencyservice.port }}"
+            - name: CART_SERVICE_ADDR
+              value: "cartservice:{{ .Values.services.cartservice.port }}"
+            - name: DISABLE_PROFILER
+              value: "1"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: checkoutservice
+  namespace: {{ .Values.namespace | quote }}
+spec:
+  type: {{ .Values.backend.service.type }}
+  selector:
+    app: checkoutservice
+  ports:
+    - port: {{ .Values.services.checkoutservice.port }}
