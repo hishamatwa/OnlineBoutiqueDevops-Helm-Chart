@@ -397,27 +397,6 @@ Rendered output:
 value: "productcatalogservice:3550"
 ```
 
----
-
-## Profiler Configuration
-
-Some services need `DISABLE_PROFILER` in the local environment.
-
-The value is managed from `values.yaml`:
-
-```yaml
-observability:
-  disableProfiler: "1"
-```
-
-Used in templates as:
-
-```yaml
-- name: DISABLE_PROFILER
-  value: {{ .Values.observability.disableProfiler | quote }}
-```
-
-This keeps the profiler setting centralized instead of hardcoding it in multiple files.
 
 ---
 
