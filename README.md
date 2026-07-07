@@ -400,27 +400,6 @@ value: "productcatalogservice:3550"
 
 ---
 
-## Important Fixes During Migration
-
-### currencyservice Fix
-
-After deploying with Helm, `currencyservice` was crashing.
-
-The logs showed:
-
-```text
-Starting gRPC server on port undefined
-```
-
-This meant the service was missing the `PORT` environment variable.
-
-The issue was fixed by adding:
-
-```text
-PORT=7000
-```
-
-to the currencyservice Helm template.
 
 ### frontendservice Fix
 
