@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: paymentservice
-          image: "{{ .Values.image.registry }}/paymentservice:{{ .Values.image.tag }}"
+          image: "{{ .Values.image.registry }}/paymentservice:{{ .Values.imageTags.paymentservice }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
             - name: PORT

@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: cartservice
-          image: "{{ .Values.image.registry }}/cartservice:{{ .Values.image.tag }}"
+          image: "{{ .Values.image.registry }}/cartservice:{{ .Values.imageTags.cartservice }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
             - name: REDIS_ADDR

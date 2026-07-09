@@ -2,10 +2,24 @@ namespace: online-boutique
 
 replicaCount: 1
 
+
 image:
   registry: docker.io/online-boutique
-  tag: v1
   pullPolicy: Never
+
+imageTags:
+  frontendservice: v1
+  productcatalogservice: v1
+  currencyservice: v1
+  cartservice: v1
+  paymentservice: v1
+  shippingservice: v1
+  emailservice: v1
+  checkoutservice: v1
+  recommendationservice: v1
+  adservice: v1
+
+
 
 redis:
   name: redis-cart

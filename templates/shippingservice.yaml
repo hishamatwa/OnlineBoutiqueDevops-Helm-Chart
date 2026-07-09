@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: shippingservice
-          image: "{{ .Values.image.registry }}/shippingservice:{{ .Values.image.tag }}"
+          image: "{{ .Values.image.registry }}/shippingservice:{{ .Values.imageTags.shippingservice }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
             - name: PORT

@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: currencyservice
-          image: "{{ .Values.image.registry }}/currencyservice:{{ .Values.image.tag }}"
+          image: "{{ .Values.image.registry }}/currencyservice:{{ .Values.imageTags.currencyservice }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
             - name: PORT

@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: checkoutservice
-          image: "{{ .Values.image.registry }}/checkoutservice:{{ .Values.image.tag }}"
+          image: "{{ .Values.image.registry }}/checkoutservice:{{ .Values.imageTags.checkoutservice }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
             - name: PORT

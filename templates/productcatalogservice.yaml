@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: productcatalogservice
-          image: "{{ .Values.image.registry }}/productcatalogservice:{{ .Values.image.tag }}"
+          image: "{{ .Values.image.registry }}/productcatalogservice:{{ .Values.imageTags.productcatalogservice }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
 ---
 apiVersion: v1

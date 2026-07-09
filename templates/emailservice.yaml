@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: emailservice
-          image: "{{ .Values.image.registry }}/emailservice:{{ .Values.image.tag }}"
+          image: "{{ .Values.image.registry }}/emailservice:{{ .Values.imageTags.emailservice }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
             - name: PORT

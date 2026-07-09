@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: adservice
-          image: "{{ .Values.image.registry }}/adservice:{{ .Values.image.tag }}"
+          image: "{{ .Values.image.registry }}/adservice:{{ .Values.imageTags.adservice }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
 ---
 apiVersion: v1

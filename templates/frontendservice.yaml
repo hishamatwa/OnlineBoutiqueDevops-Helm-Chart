@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: frontendservice
-          image: "{{ .Values.image.registry }}/frontendservice:{{ .Values.image.tag }}"
+          image: "{{ .Values.image.registry }}/frontendservice:{{ .Values.imageTags.frontendservice }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
             - name: PRODUCT_CATALOG_SERVICE_ADDR

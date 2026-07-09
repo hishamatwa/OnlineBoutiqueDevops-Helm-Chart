@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: recommendationservice
-          image: "{{ .Values.image.registry }}/recommendationservice:{{ .Values.image.tag }}"
+          image: "{{ .Values.image.registry }}/recommendationservice:{{ .Values.imageTags.recommendationservice }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
             - name: PORT
