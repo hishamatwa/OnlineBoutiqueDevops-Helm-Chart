@@ -4,8 +4,8 @@ replicaCount: 1
 
 
 image:
-  registry: docker.io/online-boutique
-  pullPolicy: Never
+  registry: docker.io/hishamatwa
+  pullPolicy: IfNotPresent
 
 imageTags:
   frontendservice: v1
