@@ -11,7 +11,7 @@ imageTags:
   frontendservice: frontendservice-13
   productcatalogservice: productcatalogservice-13
   currencyservice: currencyservice-11
-  cartservice: cartservice-30
+  cartservice: cartservice-31
   paymentservice: paymentservice-6
   shippingservice: shippingservice-10
   emailservice: emailservice-5
