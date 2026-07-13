@@ -14,7 +14,7 @@ imageTags:
   cartservice: cartservice-30
   paymentservice: paymentservice-6
   shippingservice: shippingservice-10
-  emailservice: v1
+  emailservice: emailservice-5
   checkoutservice: checkoutservice-8
   recommendationservice: v1
   adservice: v1
