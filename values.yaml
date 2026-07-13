@@ -11,7 +11,7 @@ imageTags:
   frontendservice: v1
   productcatalogservice: v1
   currencyservice: v1
-  cartservice: cartservice-25
+  cartservice: cartservice-26
   paymentservice: v1
   shippingservice: v1
   emailservice: v1
