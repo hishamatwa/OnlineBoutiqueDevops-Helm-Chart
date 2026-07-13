@@ -10,7 +10,7 @@ image:
 imageTags:
   frontendservice: v1
   productcatalogservice: v1
-  currencyservice: currencyservice-9
+  currencyservice: currencyservice-10
   cartservice: cartservice-30
   paymentservice: v1
   shippingservice: v1
