@@ -46,7 +46,7 @@ shoppingAssistant:
 services:
   adservice:
     port: 9555
-  cartservice: cartservice-20
+  cartservice:
     port: 7070
   checkoutservice:
     port: 5050
