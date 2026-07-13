@@ -12,7 +12,7 @@ imageTags:
   productcatalogservice: productcatalogservice-13
   currencyservice: currencyservice-11
   cartservice: cartservice-30
-  paymentservice: v1
+  paymentservice: paymentservice-6
   shippingservice: v1
   emailservice: v1
   checkoutservice: checkoutservice-8
