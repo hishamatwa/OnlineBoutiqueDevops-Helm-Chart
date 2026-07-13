@@ -8,7 +8,7 @@ image:
   pullPolicy: IfNotPresent
 
 imageTags:
-  frontendservice: frontendservice-11
+  frontendservice: frontendservice-12
   productcatalogservice: productcatalogservice-13
   currencyservice: currencyservice-11
   cartservice: cartservice-30
