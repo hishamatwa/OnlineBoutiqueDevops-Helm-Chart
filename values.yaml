@@ -15,7 +15,7 @@ imageTags:
   paymentservice: paymentservice-6
   shippingservice: shippingservice-10
   emailservice: emailservice-5
-  checkoutservice: checkoutservice-8
+  checkoutservice: checkoutservice-9
   recommendationservice: recommendationservice-6
   adservice: v1
 
